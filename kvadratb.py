@@ -1,5 +1,6 @@
 
 
+link = input('Введите путь к файлу, в котором вы хотите сохранить шифр')
 kvadrat =  [['а','б','в','г','д','е','ё','ж','з'],
            ['и','й','к','л','м','н','о','п','р'],
            ['с','т','у','ф','х','ц','ч','ш','щ'],
@@ -12,9 +13,18 @@ kvadrat =  [['а','б','в','г','д','е','ё','ж','з'],
 
 text = list(input())
 shivr = []
+f = open(link, 'w')
 for i in text:
     for yind, row in enumerate(kvadrat):
         for xind, col in enumerate(row):
             if i == col:
                 print(yind + 1,end='')
+                yind += 1
+                yind = str(yind)
+                f.write(yind)
                 print(xind+1, end=' ')
+                xind+=1
+                xind = str(xind)
+                f.write(xind)
+f.close()
+
